@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="login.css" >
+</head>
+<body>
+<div class="container">
+ <center> <form action="http://localhost:8082/javaservletproject/userlogin" method="post">
+   <h1>USERLOGIN</h1><br>
+   <div class="p">
+      USER NAME:<input type="text" name="uname"/>
+   </div><br>
+   <div class="p">
+      PASSWORD:<input type="password" name="upass"/>
+   </div>
+   <br>
+   <div>
+    <button type="submit" class="button">LOGIN</button>
+   </div>
+  </form> </center>
+  </div>
+ </body>
