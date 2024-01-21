@@ -13,6 +13,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+//create table user(userid int, password int);
+//insert into user values (123,1234);
+//select * from user where userid = 123 and password = 1234;
+
 
 /**
  * Servlet implementation class LoginServlet
@@ -41,9 +45,9 @@ public class LoginServlet extends HttpServlet {
 	//JDBC Connection
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "satwika123");
+			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sai", "root", "satwika123");
 			Statement st = conn.createStatement();
-			String query = "select * from user where userid = '"+userId+"' and password = '"+password+"'";
+			String query = "select * from user where userid = '"+123+"' and password = '"+1234+"'";
 			ResultSet rs = st.executeQuery(query);
 			if(rs.next()) {
 				out.print("<h1>"+userId+":Welcome to Home page</h1><br>");
@@ -53,7 +57,7 @@ public class LoginServlet extends HttpServlet {
 			}else {
 				//The userId and password is not available in DB
 				out.print("<h1>"+userId+":please enter correct userId and Password</h1><br>");
-				out.print("<h1>Login Successfully!</h1><br>");
+				out.print("<h1>Login Failed!</h1><br>");
 		
 				
 			}
@@ -61,10 +65,13 @@ public class LoginServlet extends HttpServlet {
 			st.close();
 			conn.close();
 	} catch (ClassNotFoundException e) {
-		out.print("<h1>Login Sucessfully!</h1><br>");
+		out.println("<h1>login failed !</h1><br>");
 		e.printStackTrace();
 	} catch (SQLException e) {
-		out.print("<h1>Login Successfully!</h1><br>");
+		
+		out.println("<h1> login failed !</h1><br>");
+		
+		
 		e.printStackTrace();
 		
 	}
@@ -78,4 +85,4 @@ public class LoginServlet extends HttpServlet {
 		doGet(request, response);
 	}
 
-}
+}		
